@@ -1,4 +1,3 @@
-package prueba;
 import java.util.Scanner;
 
 public class menorDecimal {
