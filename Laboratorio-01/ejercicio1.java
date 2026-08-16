@@ -1,4 +1,3 @@
-package prueba;
 public class SumaArreglos {
 
 	public static void main(String[] args) {
