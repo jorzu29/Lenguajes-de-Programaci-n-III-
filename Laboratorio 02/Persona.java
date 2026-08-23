@@ -1,14 +1,25 @@
-public class Profesor extends Persona {
-	private Curso curso;
-		
-	public Profesor(String id, String nom, String em, Curso cur) {
-		super(id, nom, em);
-		this.curso = cur;
+public abstract class Persona {
+	private String id;
+	private String nombre;
+	private String email;
+	
+	public Persona (String id, String nom, String em) {
+		this.id = id;
+		this.nombre = nom;
+		this.email = em;
 	}
 	
-	@Override
-	public String mostrarAtributos() {
-		return "Nombre de Profesor : " + getNombre() + " | Curso asignado: " + curso.getNombreCurso();
+	public String getId () {
+		return id;
 	}
 	
+	public String getNombre () {
+		return nombre;
+	}
+	
+	public String getEmail () {
+		return email;
+	}
+	
+	public abstract String mostrarAtributos();
 }
