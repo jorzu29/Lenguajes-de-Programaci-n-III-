@@ -1,37 +1,47 @@
-class Empleado{
+class Empleado {
     private String nombre;
     private double salario;
     private String departamento;
-    protected double pagototal;
-    protected double pagoadicional;
-    
-    Empleado(String nombre,double salario,String departamento){
-        this.nombre=nombre;
-        this.salario=salario;
-        this.departamento=departamento;
+    public Empleado(String nombre, double salario, String departamento) {
+        this.nombre = nombre;
+        this.salario = salario;
+        this.departamento = departamento;
     }
-    
-    public void CalcularPago(int diasTrabajados){
-        pagototal=(salario/30)*diasTrabajados;
+    public String getNombre() {
+        return nombre;
     }
-    
-    public void Mostrardatos(){
-        System.out.println("nombre: "+nombre+
-                        "\nsueldo x mes : "+salario+
-                        "\ndepartamento: "+departamento+
-                        "\nsalario: "+pagototal);
+
+    public double getSalario() {
+        return salario;
     }
-    
-    public void calcularHorasextras(int horasextras){
-        pagoadicional=((salario/30)/8)*horasextras;
-        System.out.println("trabajo "+horasextras+" horas extras,su pago por las horas es :"+pagoadicional);
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void MostrarDatos() {
+        System.out.println("nombre: " + nombre);
+        System.out.println("sueldo x mes: " + salario);
+        System.out.println("departamento: " + departamento);
     }
 }
-public class Main{
-    public static void main(String[]args){
-        Empleado emple1=new Empleado("kevin",1250.00,"secretaria");
-        emple1.CalcularPago(23);
-        emple1.Mostrardatos();
-        emple1.calcularHorasextras(0);
+class CalculoPago {
+    public double calcularPago(Empleado empleado, int diasTrabajados) {
+        return (empleado.getSalario() / 30) * diasTrabajados;
+    }
+    public double calcularHorasExtras(Empleado empleado, int horasExtras) {
+        return ((empleado.getSalario() / 30) / 8) * horasExtras;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Empleado emple1 = new Empleado("kevin", 1250.00, "secretaria");
+        CalculoPago calculo = new CalculoPago();
+        double pagoTotal = calculo.calcularPago(emple1, 23);
+        double pagoHorasExtras = calculo.calcularHorasExtras(emple1, 5);
+        emple1.MostrarDatos();
+        System.out.println("salario por dias trabajados: " + pagoTotal);
+        System.out.println("su pago por las horas es: "+ pagoHorasExtras);
     }
 }
