@@ -8,7 +8,7 @@ public class EmpleadoControlador {
     }
 
     public void iniciar() {
-        // Cargar y mostrar empleados al iniciar
+
         vista.mostrarEmpleados(modelo.leerEmpleados());
 
         int opcion;
