@@ -1,0 +1,3 @@
+caballero 100 15 50 10
+guerrero 150 20 80 20
+arquero 200 45 100 80
