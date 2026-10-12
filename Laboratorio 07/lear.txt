@@ -1,0 +1,15 @@
+Este es un programa de prueba para el sistema de java.
+Java es un lenguaje robusto para desarrollar software.
+El sistema procesa cada archivo de texto que el usuario selecciona.
+Cada archivo contiene lineas de codigo y palabras repetidas.
+El contador de palabras analiza el archivo de forma eficiente.
+Java permite programar sistemas complejos y utiles.
+Este archivo tiene varias lineas para probar el promedio.
+El programa calcula las lineas, las palabras y los caracteres.
+Cada palabra en este texto ayuda a verificar el funcionamiento.
+Java es genial para aprender programacion y logica de sistemas.
+El archivo de texto se lee linea por linea usando un bucle.
+Este programa utiliza listas paralelas en lugar de mapas.
+Un buen sistema debe procesar cualquier archivo sin errores.
+Java sigue siendo clave para este proyecto de ingenieria.
+El contador procesa todo y muestra los resultados en la consola.
