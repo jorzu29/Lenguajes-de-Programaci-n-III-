@@ -124,3 +124,4 @@ public class Ejercicio2 {
         else { conn.rollback(); System.out.println("Revertido."); }
     }
 }
+//requires java.sql;
