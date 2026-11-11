@@ -17,7 +17,6 @@ import javax.swing.JOptionPane;
 
 public class PasajeMarco extends JFrame {
 
-    // Componentes de la GUI según el módulo
     private final JLabel lblNombre, lblDocumento, lblFecha, lblOrigen, lblDestino, lblPiso, lblServicio, lblOpcionales;
     private final JTextField txtNombre, txtDocumento, txtFecha;
     private final JCheckBox chkAudifonos, chkManta, chkRevistas;
@@ -31,7 +30,7 @@ public class PasajeMarco extends JFrame {
         super("Sistema de Compra de Pasajes - Transporte Terrestre");
         setLayout(new FlowLayout());
 
-        // 1. Etiquetas (JLabel) para rotular la información
+        // JLabel
         lblNombre = new JLabel("Nombre Completo:");
         txtNombre = new JTextField(18);
         add(lblNombre);
@@ -47,7 +46,7 @@ public class PasajeMarco extends JFrame {
         add(lblFecha);
         add(txtFecha);
 
-        // 2. Cuadros combinados (JComboBox) para Origen y Destino
+        //JComboBox
         lblOrigen = new JLabel("Lugar de Origen:");
         String[] origenes = {"Lima", "Arequipa", "Cusco", "Tacna", "Trujillo"};
         cboOrigen = new JComboBox<>(origenes);
@@ -60,7 +59,7 @@ public class PasajeMarco extends JFrame {
         add(lblDestino);
         add(cboDestino);
 
-        // 3. Botones de Opción (JRadioButton) para el piso del bus
+        // JRadioButton
         lblPiso = new JLabel("Ubicación en el Bus:");
         rbtnPiso1 = new JRadioButton("1er Piso", true);
         rbtnPiso2 = new JRadioButton("2do Piso", false);
@@ -71,7 +70,7 @@ public class PasajeMarco extends JFrame {
         add(rbtnPiso1);
         add(rbtnPiso2);
 
-        // 4. Lista (JList) para elegir la calidad de servicio
+        // JList
         lblServicio = new JLabel("Calidad de Servicio:");
         String[] servicios = {"Económico", "Standard", "VIP"};
         lstServicio = new JList<>(servicios);
@@ -79,7 +78,7 @@ public class PasajeMarco extends JFrame {
         add(lblServicio);
         add(new JScrollPane(lstServicio));
 
-        // 5. Casillas de Verificación (JCheckBox) para servicios opcionales
+        // JCheckBox
         lblOpcionales = new JLabel("Servicios Opcionales:");
         chkAudifonos = new JCheckBox("Audífonos");
         chkManta = new JCheckBox("Manta");
@@ -89,7 +88,7 @@ public class PasajeMarco extends JFrame {
         add(chkManta);
         add(chkRevistas);
 
-        // 6. Botones de Comando (JButton) para procesar y limpiar
+        //JButton
         btnProcesar = new JButton("Mostrar Resumen");
         btnLimpiar = new JButton("Reiniciar");
         add(btnProcesar);
@@ -101,12 +100,11 @@ public class PasajeMarco extends JFrame {
         btnLimpiar.addActionListener(manejador);
     }
 
-    // Clase interna privada para el manejo de eventos de los botones
     private class ManejadorEventos implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent evento) {
             if (evento.getSource() == btnProcesar) {
-                // Validación básica de campos de texto
+            
                 String nombre = txtNombre.getText().trim();
                 String documento = txtDocumento.getText().trim();
                 String fecha = txtFecha.getText().trim();
@@ -119,7 +117,7 @@ public class PasajeMarco extends JFrame {
                     return;
                 }
 
-                // Recopilación de datos de los componentes
+            
                 String origen = (String) cboOrigen.getSelectedItem();
                 String destino = (String) cboDestino.getSelectedItem();
                 String piso = rbtnPiso1.isSelected() ? "1er Piso" : "2do Piso";
@@ -132,7 +130,6 @@ public class PasajeMarco extends JFrame {
                 if (chkRevistas.isSelected()) opcionales.append("- Revistas\n");
                 if (opcionales.length() == 0) opcionales.append("Ninguno");
 
-                // Construcción del resumen para mostrar en un cuadro de diálogo (JOptionPane)
                 String resumen = String.format(
                         "--- RESUMEN DE COMPRA DE PASAJE ---\n" +
                         "Pasajero: %s\n" +
