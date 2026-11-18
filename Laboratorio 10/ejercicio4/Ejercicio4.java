@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Ejercicio4 {
 
     private static Clip clip;
-    private static long posicionActual = 0; // Para almacenar la posición al pausar
+    private static long posicionActual = 0; 
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Reproductor de Música");
@@ -20,16 +20,15 @@ public class Ejercicio4 {
         JButton pauseButton = new JButton("Pausar");
         JButton resumeButton = new JButton("Reanudar");
 
-        // Botón Reproducir: Carga el audio y lo reproduce desde el inicio
+        // Reproducir
         playButton.addActionListener(e -> {
             try {
-                // Si ya hay un clip reproduciéndose, lo detenemos y cerramos
                 if (clip != null) {
                     clip.stop();
                     clip.close();
                 }
                 
-                File audioFile = new File("src/ejercicio3/aplausos.wav"); // Asegúrate de tener este archivo en la raíz del proyecto
+                File audioFile = new File("src/ejercicio3/aplausos.wav"); 
                 AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
                 clip = AudioSystem.getClip();
                 clip.open(audioStream);
@@ -42,15 +41,15 @@ public class Ejercicio4 {
             }
         });
 
-        // Botón Pausar: Detiene temporalmente el audio y guarda la posición actual
+        // Pausar
         pauseButton.addActionListener(e -> {
             if (clip != null && clip.isRunning()) {
-                posicionActual = clip.getMicrosecondPosition(); // Guarda el momento exacto
+                posicionActual = clip.getMicrosecondPosition(); 
                 clip.stop();
             }
         });
 
-        // Botón Reanudar: Vuelve a reproducir desde el punto donde se pausó
+        // Reaunudar
         resumeButton.addActionListener(e -> {
             if (clip != null && !clip.isRunning()) {
                 clip.setMicrosecondPosition(posicionActual); // Restablece la posición guardada
