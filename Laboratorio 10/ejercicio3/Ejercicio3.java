@@ -13,17 +13,14 @@ public class Ejercicio3 {
         frame.setSize(350, 150);
         frame.setLayout(new java.awt.FlowLayout());
 
-        // Creación de los botones para cada efecto de sonido
         JButton aplausosButton = new JButton("Aplausos");
         JButton campanaButton = new JButton("Campana");
         JButton explosionButton = new JButton("Explosión");
 
-        // Eventos de escucha asociados a cada botón
         aplausosButton.addActionListener(e -> playAudio("src/ejercicio3/aplausos.wav"));
         campanaButton.addActionListener(e -> playAudio("src/ejercicio3/campana.wav"));
         explosionButton.addActionListener(e -> playAudio("src/ejercicio3/explosion.wav"));
 
-        // Agregar los botones al marco
         frame.add(aplausosButton);
         frame.add(campanaButton);
         frame.add(explosionButton);
@@ -31,7 +28,6 @@ public class Ejercicio3 {
         frame.setVisible(true);
     }
 
-    // Método basado en el ejemplo AppAudio de la guía para reproducir WAV
     public static void playAudio(String filePath) {
         try {
             File audioFile = new File(filePath);
