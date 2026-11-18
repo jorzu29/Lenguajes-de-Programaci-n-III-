@@ -16,7 +16,6 @@ public class Ejercicio2 extends JFrame {
         setSize(500, 400);
         setLayout(new BorderLayout());
 
-        // 1. Panel superior con 7 campos de texto para cada día
         JPanel panelNorte = new JPanel(new GridLayout(2, 7));
         for (int i = 0; i < 7; i++) {
             panelNorte.add(new JLabel(dias[i], SwingConstants.CENTER));
@@ -33,11 +32,9 @@ public class Ejercicio2 extends JFrame {
         norte.add(btnMostrar, BorderLayout.SOUTH);
         add(norte, BorderLayout.NORTH);
 
-        // 2. Panel personalizado donde se dibuja el gráfico
         panelGrafico = new PanelGrafico();
         add(panelGrafico, BorderLayout.CENTER);
 
-        // 3. Evento del botón para capturar datos y actualizar el panel
         btnMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,14 +56,14 @@ public class Ejercicio2 extends JFrame {
     }
 }
 
-// Panel de dibujo basado en la teoría básica de la guía (extends JPanel y paintComponent)
+
 class PanelGrafico extends JPanel {
     private int[] temperaturas = {20, 20, 20, 20, 20, 20, 20};
     private String[] dias = {"Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"};
 
     public void setTemperaturas(int[] temps) {
         this.temperaturas = temps;
-        repaint(); // Llama automáticamente a paintComponent
+        repaint(); 
     }
 
     @Override
@@ -77,25 +74,23 @@ class PanelGrafico extends JPanel {
         int espacioX = 55;
         int baseY = 250; // Línea base horizontal de referencia
 
-        // Dibujar línea base del gráfico
         g.setColor(Color.BLACK);
         g.drawLine(xInicio - 10, baseY, xInicio + 6 * espacioX + 20, baseY);
 
-        // Recorrer los 7 días para dibujar puntos, líneas y texto
         for (int i = 0; i < 7; i++) {
             int x = xInicio + (i * espacioX);
             int y = baseY - (temperaturas[i] * 3); // Posición vertical simple según la temperatura
 
-            // Dibujar punto (círculo relleno)
+            // Punto
             g.setColor(Color.RED);
             g.fillOval(x - 4, y - 4, 8, 8);
 
-            // Dibujar número de temperatura encima y el día debajo
+            // Dibujar temperatura y numero
             g.setColor(Color.BLACK);
             g.drawString(String.valueOf(temperaturas[i]), x - 10, y - 10);
             g.drawString(dias[i], x - 10, baseY + 20);
 
-            // Dibujar línea que conecta con el siguiente día
+            // Dibujar línea conectora
             if (i < 6) {
                 int siguienteX = xInicio + ((i + 1) * espacioX);
                 int siguienteY = baseY - (temperaturas[i + 1] * 3);
