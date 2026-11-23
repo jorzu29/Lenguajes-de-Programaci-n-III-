@@ -42,3 +42,23 @@ class SistemaNotificaciones {
     }
 
 }
+
+public class ejericicio1 {
+
+    public static void main(String[] args) {
+
+        SistemaNotificaciones sistema = new SistemaNotificaciones();
+
+        Observer usuario1 = new Usuario("Kevin");
+        Observer usuario2 = new Usuario("Carlos");
+        Observer usuario3 = new Usuario("Maria");
+
+        sistema.agregarUsuario(usuario1);
+        sistema.agregarUsuario(usuario2);
+        sistema.agregarUsuario(usuario3);
+
+        sistema.enviarNotificacion("Hay una nueva actualización disponible.");
+
+    }
+
+}
